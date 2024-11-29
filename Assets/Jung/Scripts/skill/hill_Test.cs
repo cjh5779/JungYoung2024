@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jung_Test : MonoBehaviour
+public class hill_Test : MonoBehaviour
 {
     public ImgsFillDynamic ImgsFD;
     public GameObject ll;
@@ -14,7 +14,7 @@ public class jung_Test : MonoBehaviour
     private void Update()
     {
 
-        this.ImgsFD.SetValue(ll.GetComponent<PlayerController>().jung_ballt / 4.0f, true, 0.5f);
+        this.ImgsFD.SetValue(ll.GetComponent<PlayerController>().jung_hillt / 20.0f, true, 0.5f);
 
     }
 }

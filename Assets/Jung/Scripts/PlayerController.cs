@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public bool move_flag = true;
     bool hiller_flag = false;
-    public float jung_hillt = 0.0f;
+    float jung_hillt = 0.0f;
     float jung_hilltime = 20.0f;
     bool jung_hillflag = true;
 

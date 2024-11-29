@@ -6,7 +6,6 @@ public class jung_Test : MonoBehaviour
 {
     public ImgsFillDynamic ImgsFD;
     public GameObject ll;
-
     void Start()
     {
         this.ImgsFD.SetValue(0, true, 0.5f);

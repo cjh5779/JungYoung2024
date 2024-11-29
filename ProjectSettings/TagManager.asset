@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerAttack
+  - FxTemporaire
+  - golem
+  - rock
   layers:
   - Default
   - TransparentFX

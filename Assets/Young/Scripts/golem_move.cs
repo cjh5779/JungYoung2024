@@ -18,6 +18,7 @@ public class golem_move : MonoBehaviour
     public float maxThrowAttackRange = 10.0f;  // 돌을 던질 수 있는 최대 범위
 
     public int health = 2;
+    public static int deathcount = 0; 
 
 
 
@@ -71,8 +72,10 @@ public class golem_move : MonoBehaviour
         GameObject thrownRock = Instantiate(rock, rockSpawnPoint.transform.position, rockSpawnPoint.transform.rotation) as GameObject;
         Rigidbody rb = thrownRock.GetComponent<Rigidbody>();
         Vector3 direction =  thrownRock.transform.TransformDirection(Vector3.forward);
-        rb.AddForce(direction * 500);  // 힘을 주어 돌을 던지기
+        rb.AddForce(direction * 1000);  // 힘을 주어 돌을 던지기
+        Destroy( thrownRock, 5f); 
         StartCoroutine(ResumeMovementAfterAttack("throwattack"));
+
     }
 
     void NomalAttack()
@@ -101,10 +104,16 @@ public class golem_move : MonoBehaviour
 
     void Die()
     {
-    anim.SetTrigger("die");
-    agent.isStopped = true;
-    Destroy(gameObject, 10f);  // 3초 후 삭제
+
+     anim.SetTrigger("die");
+     agent.isStopped = true;
+     Destroy(gameObject, 5f);  // 5초 후 삭제   
+     deathcount++; 
+
     }
+
+
+
 
 
 
@@ -116,11 +125,13 @@ public class golem_move : MonoBehaviour
 
       IEnumerator ResumeMovementAfterAttack(string attackTrigger)
     {
+
         // 애니메이션 길이가 끝날 때까지 대기 (애니메이션의 길이에 맞춰 조절)
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         
         // 애니메이션 후 이동 재개
         agent.isStopped = false;
+
     }
 }
 

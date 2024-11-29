@@ -9,9 +9,15 @@ public class PlayerController : MonoBehaviour
     public GameObject fireball_spawn;
     public GameObject young_ball;
     public GameObject youngball_spawn;
+    public GameObject jung_hill;
+    public GameObject hillzone_spawn;
 
     public bool move_flag = true;
-    bool hill_flag = false;
+    bool hiller_flag = false;
+    float jung_hillt = 0.0f;
+    float jung_hilltime = 20.0f;
+    bool jung_hillflag = true;
+
 
     bool jung_flag = false;
     bool jung_ballflag = true;
@@ -54,6 +60,16 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (!jung_hillflag)
+        {
+            jung_hillt -= Time.deltaTime;
+            if (jung_hillt - Time.deltaTime < 0)
+            {
+                jung_hillt = 0;
+                jung_hillflag = true;
+            }
+        }
+
         // 스킬 사용 중 시간 카운트
         if (!move_flag)
         {
@@ -74,11 +90,11 @@ public class PlayerController : MonoBehaviour
             young_flag = false;
         }
         // 일정 시간이 지나면 움직임 활성화
-        if (time > 1.7f && hill_flag)
+        if (time > 1.7f && hiller_flag)
         {
             time = 0.0f;
             move_flag = true;
-            hill_flag = false;
+            hiller_flag = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -97,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 jung_ballt = jung_balltime;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && move_flag)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && move_flag && young_ballflag)
         {
             GameObject tmp = Instantiate(young_ball, youngball_spawn.transform.position, this.transform.rotation) as GameObject;    
             tmp.transform.parent = tmp.transform;
@@ -108,11 +124,14 @@ public class PlayerController : MonoBehaviour
             young_ballt = young_balltime;
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && move_flag)
+        if(Input.GetKeyDown(KeyCode.E) && move_flag && jung_hillflag)
         {
+            Instantiate(jung_hill, hillzone_spawn.transform.position, jung_hill.transform.rotation);
             anim.SetTrigger("hill");
             move_flag = false;
-            hill_flag = true;
+            hiller_flag = true;
+            jung_hillflag = false;
+            jung_hillt = jung_hilltime;
         }
     }
 }

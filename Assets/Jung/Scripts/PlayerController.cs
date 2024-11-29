@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public GameObject youngball_spawn;
     public GameObject jung_hill;
     public GameObject hillzone_spawn;
+    public GameObject sword;
+    public GameObject sword_spawn;
 
     public bool move_flag = true;
     bool hiller_flag = false;
@@ -28,6 +30,11 @@ public class PlayerController : MonoBehaviour
     bool young_ballflag = true;
     float young_balltime = 12.0f;
     public float young_ballt = 0.0f;
+
+    bool sword_flag = false;
+    float sword_time = 0.0f;
+    bool jung_swordflag = true;
+    public float jung_swordt = 0.0f;
 
     float time = 0.0f;
 
@@ -70,6 +77,16 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (!jung_swordflag)
+        {
+            jung_swordt -= Time.deltaTime;
+            if (jung_swordt - Time.deltaTime < 0)
+            {
+                jung_swordt = 0;
+                jung_swordflag = true;
+            }
+        }
+
         // 스킬 사용 중 시간 카운트
         if (!move_flag)
         {
@@ -88,6 +105,12 @@ public class PlayerController : MonoBehaviour
             time = 0.0f;
             move_flag = true;
             young_flag = false;
+        }
+        if (time > 2.2f && sword_flag)
+        {
+            time = 0.0f;
+            move_flag = true;
+            sword_flag = false;
         }
         // 일정 시간이 지나면 움직임 활성화
         if (time > 1.7f && hiller_flag)
@@ -132,6 +155,16 @@ public class PlayerController : MonoBehaviour
             hiller_flag = true;
             jung_hillflag = false;
             jung_hillt = jung_hilltime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && move_flag && jung_swordflag)
+        {
+            Instantiate(sword, sword_spawn.transform.position, sword_spawn.transform.rotation);
+            anim.SetTrigger("fireball_shoot");
+            move_flag = false;
+            sword_flag = true;
+            jung_swordflag = false;
+            jung_swordt = 40.0f;
         }
     }
 }

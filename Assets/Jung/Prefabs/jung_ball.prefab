@@ -4855,7 +4855,7 @@ GameObject:
   - component: {fileID: 8061103856477588532}
   m_Layer: 0
   m_Name: jung_ball
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14621,7 +14621,7 @@ GameObject:
   - component: {fileID: 7687485513636514549}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14706,7 +14706,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -38532,8 +38532,13 @@ MonoBehaviour:
   anim: {fileID: 0}
   jung_ball: {fileID: 0}
   fireball_spawn: {fileID: 0}
+  young_ball: {fileID: 0}
+  youngball_spawn: {fileID: 0}
+  jung_hill: {fileID: 0}
+  hillzone_spawn: {fileID: 0}
   move_flag: 1
   jung_ballt: 0
+  young_ballt: 0
 --- !u!1 &8102474770877374951
 GameObject:
   m_ObjectHideFlags: 0

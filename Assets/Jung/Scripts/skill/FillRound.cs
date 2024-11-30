@@ -38,3 +38,4 @@ public class FillRound : MonoBehaviour
         return _amount * 360F;
     }
 }
+

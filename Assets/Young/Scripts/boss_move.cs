@@ -102,16 +102,14 @@ public class boss_move : MonoBehaviour
             {
                 Die();
             }
-    }
+        }
     }
     void Die()
     {
 
      anim.SetTrigger("die");
      agent.isStopped = true;
-     Destroy(gameObject, 5f);  // 5초 후 삭제   
-    
-
+     Destroy(gameObject, 5f);  // 5초 후 삭제
     }
 
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public bool move_flag = true;
     bool coll_flag = true;
     float coll_time = 0.0f;
+
+    bool death_flag = false;
+    float death_time = 0.0f;
 
     bool hiller_flag = false;
     public float jung_hillt = 0.0f;
@@ -51,6 +56,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (death_flag)
+        {
+            move_flag = false;
+            death_time += Time.deltaTime;
+        }
+        if (death_time > 4)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
         if (!jung_ballflag)
         {
             jung_ballt -= Time.deltaTime;
@@ -186,6 +200,11 @@ public class PlayerController : MonoBehaviour
     void OnCollisionStay(Collision coll)
     {
         if (coll.gameObject.tag == "golem") HP.GetComponent<HPController>().HealthBar.value -= 0.004f;
+        if (HP.GetComponent<HPController>().HealthBar.value == 0.0f && !death_flag)
+        {
+            death_flag = true;
+            anim.Rebind();
+        }
     }
 
     void OnCollisionEnter(Collision coll)

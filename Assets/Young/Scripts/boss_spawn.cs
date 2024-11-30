@@ -18,8 +18,9 @@ public class boss_spawn : MonoBehaviour
     {
         if (golem_move.deathcount >=3 && !bossSpawned) 
         {
-            Instantiate(boss,this.transform.position, this.transform.rotation);
             bossSpawned = true;
+            Instantiate(boss,this.transform.position, this.transform.rotation);
+            
         }
     }
 

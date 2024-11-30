@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b967d098d0a6ff04896eb8ce9b130f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 8126417616642133344, guid: 95a9a53f20c1fff43a366324a86f7b42, type: 3}
+  boss: {fileID: 7766651235000078898, guid: 95a9a53f20c1fff43a366324a86f7b42, type: 3}
 --- !u!4 &174803279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2165873328365870271, guid: 823b4b172f2e8124fbc67fc4d437cb15, type: 3}
@@ -11549,6 +11549,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 823b4b172f2e8124fbc67fc4d437cb15, type: 3}
+--- !u!1 &1874364844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874364846}
+  m_Layer: 0
+  m_Name: BossAttackSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874364846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874364844}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.37, y: 41.49701, z: 58.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1876217109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17934,5 +17965,6 @@ SceneRoots:
   - {fileID: 935046754}
   - {fileID: 356459774}
   - {fileID: 165819990}
+  - {fileID: 1874364846}
   - {fileID: 1918569984}
   - {fileID: 323193597}

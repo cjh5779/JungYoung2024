@@ -11,11 +11,11 @@ public class boss_move : MonoBehaviour
     public float NomalAttackRange = 1.5f;   // 근거리 공격 범위 설정
     public float  SkillAttackRange = 3.0f;
 
-    public float MaxSkillAttackRange = 6.0f; 
+    public float MaxSkillAttackRange = 6.0f;
+    public GameObject Attack;
+    public GameObject Attack_spawn;
 
-
-    
-     float attackCoolTime = 10.0f; // 공격 쿨타임
+    float attackCoolTime = 10.0f; // 공격 쿨타임
      float lastAttackTime = 0f; // 마지막 공격 시간
         public int health = 2;
     // Start is called before the first frame update
@@ -69,9 +69,11 @@ public class boss_move : MonoBehaviour
         agent.isStopped = true;
 
         anim.SetTrigger("skillattack"); // 공격 애니메이션 실행
+        GameObject tmp = Instantiate(Attack, Attack_spawn.transform.position, this.transform.rotation) as GameObject;
+        tmp.transform.parent = tmp.transform;
         lastAttackTime = Time.time; // 공격 시간 갱신
 
-          StartCoroutine(ResumeMovementAfterAttack("skillattack"));
+        StartCoroutine(ResumeMovementAfterAttack("skillattack"));
         
     }
 

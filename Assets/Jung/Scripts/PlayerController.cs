@@ -13,8 +13,12 @@ public class PlayerController : MonoBehaviour
     public GameObject hillzone_spawn;
     public GameObject sword;
     public GameObject sword_spawn;
+    public GameObject HP;
 
     public bool move_flag = true;
+    bool coll_flag = true;
+    float coll_time = 0.0f;
+
     bool hiller_flag = false;
     public float jung_hillt = 0.0f;
     float jung_hilltime = 20.0f;
@@ -119,7 +123,17 @@ public class PlayerController : MonoBehaviour
             move_flag = true;
             hiller_flag = false;
         }
+        if (coll_time > 1.0f && !jung_flag && !young_flag && !hiller_flag && !sword_flag)
+        {
+            move_flag = true;
+        }
+        if (coll_time > 3.0f)
+        {
+            coll_time = 0.0f;
+            coll_flag = true;
 
+        }
+        if (!coll_flag) coll_time += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             this.transform.Rotate(0, 180, 0);
@@ -130,15 +144,15 @@ public class PlayerController : MonoBehaviour
             GameObject tmp = Instantiate(jung_ball, fireball_spawn.transform.position, this.transform.rotation) as GameObject;
             tmp.transform.parent = tmp.transform;
             anim.SetTrigger("fireball_shoot");
-                move_flag = false;
-                jung_flag = true;
-                jung_ballflag = false;
-                jung_ballt = jung_balltime;
+            move_flag = false;
+            jung_flag = true;
+            jung_ballflag = false;
+            jung_ballt = jung_balltime;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && move_flag && young_ballflag)
         {
-            GameObject tmp = Instantiate(young_ball, youngball_spawn.transform.position, this.transform.rotation) as GameObject;    
+            GameObject tmp = Instantiate(young_ball, youngball_spawn.transform.position, this.transform.rotation) as GameObject;
             tmp.transform.parent = tmp.transform;
             anim.SetTrigger("ultra_shoot");
             move_flag = false;
@@ -147,10 +161,11 @@ public class PlayerController : MonoBehaviour
             young_ballt = young_balltime;
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && move_flag && jung_hillflag)
+        if (Input.GetKeyDown(KeyCode.E) && move_flag && jung_hillflag)
         {
             Instantiate(jung_hill, hillzone_spawn.transform.position, jung_hill.transform.rotation);
             anim.SetTrigger("hill");
+            HP.GetComponent<HPController>().HealthBar.value += 0.3f;
             move_flag = false;
             hiller_flag = true;
             jung_hillflag = false;
@@ -165,6 +180,26 @@ public class PlayerController : MonoBehaviour
             sword_flag = true;
             jung_swordflag = false;
             jung_swordt = 40.0f;
+        }
+    }
+
+    void OnCollisionStay(Collision coll)
+    {
+        if (coll.gameObject.tag == "golem") HP.GetComponent<HPController>().HealthBar.value -= 0.004f;
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll_flag && coll.gameObject.tag == "rock")
+        {
+            if (move_flag)
+            {
+                anim.SetTrigger("gethit");
+                coll_flag = false;
+                move_flag = false;
+            }
+
+            HP.GetComponent<HPController>().HealthBar.value -= 0.1f;
         }
     }
 }

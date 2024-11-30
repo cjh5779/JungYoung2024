@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour
     public float jung_swordt = 0.0f;
 
     float time = 0.0f;
-
+     float golemDamageTimer = 0.0f;
+    float damageInterval = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        golemDamageTimer += Time.deltaTime;
+
         if (death_flag)
         {
             move_flag = false;
@@ -195,11 +198,16 @@ public class PlayerController : MonoBehaviour
             jung_swordflag = false;
             jung_swordt = 40.0f;
         }
+        
     }
 
     void OnCollisionStay(Collision coll)
     {
-        if (coll.gameObject.tag == "golem") HP.GetComponent<HPController>().HealthBar.value -= 0.004f;
+        if (coll.gameObject.tag == "golem"  && golemDamageTimer >= damageInterval ) {
+            HP.GetComponent<HPController>().HealthBar.value -= 0.2f;
+            anim.SetTrigger("gethit");
+            golemDamageTimer = 0.0f;
+        }
         if (HP.GetComponent<HPController>().HealthBar.value == 0.0f && !death_flag)
         {
             death_flag = true;

@@ -8418,6 +8418,7 @@ Transform:
   - {fileID: 7080249749154813561}
   - {fileID: 8614138719040854288}
   - {fileID: 6494668154889828043}
+  - {fileID: 739649388802933026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9500000
@@ -8660,9 +8661,14 @@ MonoBehaviour:
   youngball_spawn: {fileID: 7497036638425847683}
   jung_hill: {fileID: 7601395994101252352, guid: f9505f31719160e42b3e6dd39ad642bf, type: 3}
   hillzone_spawn: {fileID: 4932223630102567488}
+  sword: {fileID: 3305444949672901293, guid: 88ec5e2eccbaaac4c845d3021af04271, type: 3}
+  sword_spawn: {fileID: 5137071025939861747}
+  HP: {fileID: 0}
   move_flag: 1
+  jung_hillt: 0
   jung_ballt: 0
   young_ballt: 0
+  jung_swordt: 0
 --- !u!136 &2828730471093522047
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8740,7 +8746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9516c4bb835e96d4787e7178b6e3a799, type: 3}
   m_Name: 
@@ -8803,6 +8809,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.05599467, z: 0.00025049847}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 400328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5137071025939861747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 739649388802933026}
+  m_Layer: 0
+  m_Name: sword_spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &739649388802933026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137071025939861747}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.88199365, z: 0.93691766}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []

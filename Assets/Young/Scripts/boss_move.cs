@@ -9,11 +9,12 @@ public class boss_move : MonoBehaviour
      public UnityEngine.AI.NavMeshAgent agent;
 
     public float NomalAttackRange = 1.5f;   // 근거리 공격 범위 설정
-    public float  SkillAttackRange = 3.0f;
+    public float  SkillAttackRange = 9.0f;
 
     public float MaxSkillAttackRange = 6.0f;
-    public GameObject Attack;
-    public GameObject Attack_spawn;
+
+    public GameObject[] sword; // 소환할 검
+    public Transform[] sword_spawn; // 검 소환 위치
 
     float attackCoolTime = 10.0f; // 공격 쿨타임
      float lastAttackTime = 0f; // 마지막 공격 시간
@@ -69,8 +70,11 @@ public class boss_move : MonoBehaviour
         agent.isStopped = true;
 
         anim.SetTrigger("skillattack"); // 공격 애니메이션 실행
-        GameObject tmp = Instantiate(Attack, Attack_spawn.transform.position, this.transform.rotation) as GameObject;
-        tmp.transform.parent = tmp.transform;
+
+        for (int i = 0; i < 8; i++)
+        {
+            Instantiate(sword[i], sword_spawn[i].transform.position, sword_spawn[i].transform.rotation);
+        }
         lastAttackTime = Time.time; // 공격 시간 갱신
 
         StartCoroutine(ResumeMovementAfterAttack("skillattack"));

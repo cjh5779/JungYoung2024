@@ -4559,7 +4559,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -4585,8 +4585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 3467915286265459867}
   NomalAttackRange: 1.5
-  SkillAttackRange: 3
-  MaxSkillAttackRange: 6
+  SkillAttackRange: 9
+  MaxSkillAttackRange: 10
   sword:
   - {fileID: 7292496093402710492, guid: fd64ec32d31a16c46a0f380269129410, type: 3}
   - {fileID: 5632359212928365097, guid: dfcb2066d28cbcc4eb2a6705dccb7e48, type: 3}

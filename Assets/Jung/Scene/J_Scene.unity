@@ -4796,24 +4796,9 @@ PrefabInstance:
       propertyPath: HP
       value: 
       objectReference: {fileID: 1249089449}
-    - target: {fileID: 1018689618422697974, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
-      propertyPath: sword
-      value: 
-      objectReference: {fileID: 3305444949672901293, guid: 88ec5e2eccbaaac4c845d3021af04271, type: 3}
-    - target: {fileID: 1018689618422697974, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
-      propertyPath: sword_spawn
-      value: 
-      objectReference: {fileID: 2046350637}
-    - target: {fileID: 6343854503942347719, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 400328, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2046350638}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
 --- !u!4 &735166755 stripped
@@ -12131,11 +12116,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100338, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
   m_PrefabInstance: {fileID: 733026142}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1952857489 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400328, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
-  m_PrefabInstance: {fileID: 733026142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1954197706
 GameObject:
   m_ObjectHideFlags: 0
@@ -12941,37 +12921,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036749301}
   m_CullTransparentMesh: 1
---- !u!1 &2046350637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2046350638}
-  m_Layer: 0
-  m_Name: sword_spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2046350638
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046350637}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88199365, z: 0.93691766}
-  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1952857489}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2048385086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2165873328365870271, guid: 4a2c3979739c1334aaacb69a14b55365, type: 3}

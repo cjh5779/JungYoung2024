@@ -7,6 +7,7 @@ public class PlayerHit : MonoBehaviour
      public Animator anim;
      bool collision_flag = true;
      float collision_time = 0;
+     
     // Start is called before the first frame update
     void Start()
     {

@@ -91,7 +91,7 @@ public class boss_move : MonoBehaviour
         if (other.gameObject.CompareTag("PlayerAttack"))
     {
         health--;
-        anim.SetTrigger("get_hit");
+        anim.SetTrigger("gethit");
             if (health <= 0)
             {
                 Die();

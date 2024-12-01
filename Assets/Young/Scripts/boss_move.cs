@@ -9,9 +9,9 @@ public class boss_move : MonoBehaviour
      public UnityEngine.AI.NavMeshAgent agent;
 
     public float NomalAttackRange = 1.5f;   // 근거리 공격 범위 설정
-    public float  SkillAttackRange = 8.0f;  // 스킬 공격 범위 설정
+    public float  SkillAttackRange = 9.0f;
 
-    public float MaxSkillAttackRange = 10.0f; // 최대 스킬 공격 범위 설정 
+    public float MaxSkillAttackRange = 6.0f;
 
     public GameObject[] sword; // 소환할 검
     public Transform[] sword_spawn; // 검 소환 위치
@@ -102,16 +102,14 @@ public class boss_move : MonoBehaviour
             {
                 Die();
             }
-    }
+        }
     }
     void Die()
     {
 
      anim.SetTrigger("die");
      agent.isStopped = true;
-     Destroy(gameObject, 3f);  // 3초 후 삭제   
-    
-
+     Destroy(gameObject, 5f);  // 5초 후 삭제
     }
 
 }

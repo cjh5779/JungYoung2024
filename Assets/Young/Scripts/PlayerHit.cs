@@ -17,26 +17,13 @@ public class PlayerHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (!collision_flag) collision_time += Time.deltaTime;  // 플레이어가 공격을 받을 수 있는 시간 체크
-        if( collision_time > 3.0f)
+        if(collision_time > 3.0f)
         {
             collision_time = 0.0f;
-            collision_flag = true;
-            
+            collision_flag = true;   
         }
-
-
-
-
     }
-
-    
-
-
-
-
 
    void OnCollisionEnter(Collision collision) 
    {

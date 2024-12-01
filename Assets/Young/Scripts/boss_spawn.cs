@@ -18,7 +18,7 @@ public class boss_spawn : MonoBehaviour
     // Update는 매 프레임마다 호출됩니다.
     void Update()
     {
-        if (golem_move.deathcount >= 3 && !bossSpawned) // golem_move의 deathcount가 3 이상이고, 보스가 생성되지 않았다면
+        if (golem_move.deathcount >= 5 && !bossSpawned) // golem_move의 deathcount가 5 이상이고, 보스가 생성되지 않았다면
         {
             bossSpawned = true; // 보스가 생성되었음을 표시
             GameObject spawnedBoss = Instantiate(boss, this.transform.position, this.transform.rotation); // 보스 생성

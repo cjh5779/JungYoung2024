@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class boss_move : MonoBehaviour
 {
     GameObject target;  // 플레이어
      Animator anim; // 에니메이션
      public UnityEngine.AI.NavMeshAgent agent;
+     
 
     public float NomalAttackRange = 1.5f;   // 근거리 공격 범위 설정
     public float  SkillAttackRange = 9.0f;
@@ -19,6 +21,8 @@ public class boss_move : MonoBehaviour
     float attackCoolTime = 10.0f; // 공격 쿨타임
      float lastAttackTime = 0f; // 마지막 공격 시간
         public int health = 2;
+        float death_time = 0.0f;
+        bool death_flag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +57,17 @@ public class boss_move : MonoBehaviour
             NomalAttack();
         }
 
+
+         if (death_flag)
+        {
+            death_time += Time.deltaTime;
+        }
+        if (death_time > 3)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+
+        
     }
 
     void NomalAttack()
@@ -101,6 +116,7 @@ public class boss_move : MonoBehaviour
             if (health <= 0)
             {
                 Die();
+                
             }
         }
     }
@@ -109,7 +125,9 @@ public class boss_move : MonoBehaviour
 
      anim.SetTrigger("die");
      agent.isStopped = true;
-     Destroy(gameObject, 5f);  // 5초 후 삭제
+     death_flag = true;
+     Destroy(gameObject, 3f);  // 3초 후 삭제
+    
     }
 
 }

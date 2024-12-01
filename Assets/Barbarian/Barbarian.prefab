@@ -4449,7 +4449,7 @@ GameObject:
   - component: {fileID: 2259790161954390851}
   m_Layer: 0
   m_Name: Barbarian
-  m_TagString: golem
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4464,7 +4464,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6268372152572259206}
@@ -4547,7 +4547,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1}
+  m_Size: {x: 1.2, y: 1.2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &3467915286265459867
 NavMeshAgent:
@@ -4585,7 +4585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 3467915286265459867}
   NomalAttackRange: 1.5
-  SkillAttackRange: 9
+  SkillAttackRange: 8
   MaxSkillAttackRange: 10
   sword:
   - {fileID: 7292496093402710492, guid: fd64ec32d31a16c46a0f380269129410, type: 3}

@@ -73,7 +73,7 @@ public class golem_move : MonoBehaviour
         Rigidbody rb = thrownRock.GetComponent<Rigidbody>();
         Vector3 direction =  thrownRock.transform.TransformDirection(Vector3.forward);
         rb.AddForce(direction * 1000);  // 힘을 주어 돌을 던지기
-        Destroy( thrownRock, 5f); 
+        Destroy( thrownRock, 3f); 
         StartCoroutine(ResumeMovementAfterAttack("throwattack"));
 
     }
@@ -107,7 +107,7 @@ public class golem_move : MonoBehaviour
 
      anim.SetTrigger("die");
      agent.isStopped = true;
-     Destroy(gameObject, 5f);  // 5초 후 삭제   
+     Destroy(gameObject, 2f);  // 2초 후 삭제   
      deathcount++; 
 
     }

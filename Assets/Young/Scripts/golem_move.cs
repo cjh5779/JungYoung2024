@@ -99,7 +99,8 @@ public class golem_move : MonoBehaviour
             {
                 Die();
             }
-    }
+    }else if (other.gameObject.CompareTag("PlayerSuperAttack")) Die();
+    
     }
 
     void Die()

@@ -196,7 +196,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7114358924885906239}
   - component: {fileID: 700408419113773633}
+<<<<<<< HEAD
   - component: {fileID: 3138625091119950262}
+=======
+  - component: {fileID: 7641422486231888017}
+>>>>>>> 64306a3a69fd585fe581bc079735bdd0a1e9798d
   m_Layer: 5
   m_Name: jung_HP
   m_TagString: rock
@@ -213,7 +217,11 @@ RectTransform:
   m_GameObject: {fileID: 6047771619194626408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_LocalScale: {x: 0.90271676, y: 0.53101003, z: 0.9440177}
+=======
+  m_LocalScale: {x: 0.5628787, y: 0.33110523, z: 0.58863145}
+>>>>>>> 64306a3a69fd585fe581bc079735bdd0a1e9798d
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8150813322707212232}
@@ -277,7 +285,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
 --- !u!114 &3138625091119950262
+=======
+--- !u!114 &7641422486231888017
+>>>>>>> 64306a3a69fd585fe581bc079735bdd0a1e9798d
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class boss_move : MonoBehaviour
@@ -18,28 +19,31 @@ public class boss_move : MonoBehaviour
     public GameObject[] sword; // 소환할 검
     public Transform[] sword_spawn; // 검 소환 위치
 
-
-    float attackCoolTime = 10.0f; // 공격 쿨타임
+    float attackCoolTime = 10.0f; // 공격 쿨타임  
     float lastAttackTime = 0f; // 마지막 공격 시간
     float death_time = 0.0f;
     bool death_flag = false;
-    float pitchMultiplier = 2.0f;
 
-    public AudioClip[] audioClips = new AudioClip[3]; // 0번째 : 기본공격 , 1번쨰 : 스킬공격 , 2번째 : 공격당함 또는 죽음
-    private AudioSource audioSource;
+    public Slider healthSlider;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("unitychan_dynamic");
          anim = GetComponent<Animator>();
-         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         agent.SetDestination(target.transform.position);
+
+        Slider healthSlider = HP.GetComponent<HPController>().HealthBar;
+        if (healthSlider != null)
+        {
+            healthSlider.value = HP.GetComponent<HPController>().HealthBar.value;
+        }
+
+        agent.SetDestination(target.transform.position);
 
 
         if (agent.remainingDistance >= agent.stoppingDistance)  // 실제 남아있는거리 > 설정한 스탑거리
@@ -84,8 +88,6 @@ public class boss_move : MonoBehaviour
         lastAttackTime = Time.time; // 공격 시간 갱신
 
           StartCoroutine(ResumeMovementAfterAttack("nomalattack"));
-          audioSource.clip = audioClips[0];
-            audioSource.Play();
         
     }
      void SkillAttack()
@@ -101,9 +103,6 @@ public class boss_move : MonoBehaviour
         lastAttackTime = Time.time; // 공격 시간 갱신
 
         StartCoroutine(ResumeMovementAfterAttack("skillattack"));
-        
-        audioSource.clip = audioClips[1];
-            audioSource.Play();
         
     }
 
@@ -122,11 +121,10 @@ public class boss_move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
-            HP.GetComponent<HPController>().HealthBar.value -= 0.5f;
+            HP.GetComponent<HPController>().HealthBar.value -= 0.3f;
+            Debug.Log("Current Health: " + HP.GetComponent<HPController>().HealthBar.value);
             Canvas.ForceUpdateCanvases();
             anim.SetTrigger("gethit");
-            audioSource.clip = audioClips[2];
-            audioSource.Play();
             if (HP.GetComponent<HPController>().HealthBar.value == 0.0f)
             {
                 Die();

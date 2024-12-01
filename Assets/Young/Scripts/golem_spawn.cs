@@ -12,7 +12,7 @@ public class golem_spawn : MonoBehaviour
         {
            
             Instantiate(golem[Random.Range(0, 2)],this.transform.position, this.transform.rotation);
-            yield return new WaitForSeconds(Random.Range(50.0f, 60.0f));
+            yield return new WaitForSeconds(Random.Range(20.0f, 30.0f));
             
         }
     }

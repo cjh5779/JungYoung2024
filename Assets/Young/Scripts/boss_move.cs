@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class boss_move : MonoBehaviour
@@ -18,10 +19,12 @@ public class boss_move : MonoBehaviour
     public GameObject[] sword; // 소환할 검
     public Transform[] sword_spawn; // 검 소환 위치
 
-    float attackCoolTime = 10.0f; // 공격 쿨타임
+    float attackCoolTime = 10.0f; // 공격 쿨타임  
     float lastAttackTime = 0f; // 마지막 공격 시간
     float death_time = 0.0f;
     bool death_flag = false;
+
+    public Slider healthSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,14 @@ public class boss_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         agent.SetDestination(target.transform.position);
+
+        Slider healthSlider = HP.GetComponent<HPController>().HealthBar;
+        if (healthSlider != null)
+        {
+            healthSlider.value = HP.GetComponent<HPController>().HealthBar.value;
+        }
+
+        agent.SetDestination(target.transform.position);
 
 
         if (agent.remainingDistance >= agent.stoppingDistance)  // 실제 남아있는거리 > 설정한 스탑거리
@@ -111,7 +121,8 @@ public class boss_move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
-            HP.GetComponent<HPController>().HealthBar.value -= 0.5f;
+            HP.GetComponent<HPController>().HealthBar.value -= 0.3f;
+            Debug.Log("Current Health: " + HP.GetComponent<HPController>().HealthBar.value);
             Canvas.ForceUpdateCanvases();
             anim.SetTrigger("gethit");
             if (HP.GetComponent<HPController>().HealthBar.value == 0.0f)

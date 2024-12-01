@@ -8389,6 +8389,7 @@ GameObject:
   - component: {fileID: 6343854503942347719}
   - component: {fileID: 5516459616994287763}
   - component: {fileID: 5158254441922938563}
+  - component: {fileID: 5400797513395829701}
   m_Layer: 0
   m_Name: unitychan_dynamic
   m_TagString: Untagged
@@ -8664,11 +8665,18 @@ MonoBehaviour:
   sword: {fileID: 3305444949672901293, guid: 88ec5e2eccbaaac4c845d3021af04271, type: 3}
   sword_spawn: {fileID: 5137071025939861747}
   HP: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: 5fe4bc0609c03e24097e0cb3666a4fb5, type: 3}
+  - {fileID: 8300000, guid: adcac75087a17704ca6c0c3b15bc3aa5, type: 3}
+  - {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
+  - {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4, type: 3}
+  - {fileID: 8300000, guid: 6ccbc3d284bd849d49fb1f8f94ab2888, type: 3}
   move_flag: 1
   jung_hillt: 0
   jung_ballt: 0
   young_ballt: 0
   jung_swordt: 0
+  enemycount: 0
 --- !u!136 &2828730471093522047
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8752,6 +8760,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 9500000}
+--- !u!82 &5400797513395829701
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100338}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1996235770487621840
 GameObject:
   m_ObjectHideFlags: 0
@@ -8888,6 +8992,7 @@ GameObject:
   - component: {fileID: 695445845585560126}
   - component: {fileID: 4962776511360232848}
   - component: {fileID: 5737523764841847624}
+  - component: {fileID: 2488500039929268502}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9001,6 +9106,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smooth: 3
+--- !u!81 &2488500039929268502
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557702952133464253}
+  m_Enabled: 1
 --- !u!1001 &823550927449690823
 PrefabInstance:
   m_ObjectHideFlags: 0

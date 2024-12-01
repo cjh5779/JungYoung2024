@@ -38536,9 +38536,19 @@ MonoBehaviour:
   youngball_spawn: {fileID: 0}
   jung_hill: {fileID: 0}
   hillzone_spawn: {fileID: 0}
+  sword: {fileID: 0}
+  sword_spawn: {fileID: 0}
+  HP: {fileID: 0}
+  audioClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   move_flag: 1
+  jung_hillt: 0
   jung_ballt: 0
   young_ballt: 0
+  jung_swordt: 0
+  enemycount: 0
 --- !u!1 &8102474770877374951
 GameObject:
   m_ObjectHideFlags: 0

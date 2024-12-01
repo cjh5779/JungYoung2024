@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     public GameObject sword;
     public GameObject sword_spawn;
     public GameObject HP;
+    public AudioClip[] audioClips = new AudioClip[5]; // 0번쨰 : 파이어볼, 1번째 :매직볼 , 2번째:힐 , 3번째 : 궁극기 , 4번쩨 : 공격당함,죽음
+    private AudioSource audioSource;
+     float pitchMultiplier = 2.0f;
+ 
+
 
     public bool move_flag = true;
     bool coll_flag = true;
@@ -53,7 +58,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+              audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -168,6 +173,9 @@ public class PlayerController : MonoBehaviour
             jung_flag = true;
             jung_ballflag = false;
             jung_ballt = jung_balltime;
+            audioSource.clip = audioClips[0];
+            audioSource.pitch = pitchMultiplier;
+            audioSource.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && move_flag && young_ballflag)
@@ -179,6 +187,9 @@ public class PlayerController : MonoBehaviour
             young_flag = true;
             young_ballflag = false;
             young_ballt = young_balltime;
+             audioSource.clip = audioClips[1];
+            audioSource.pitch = pitchMultiplier;
+            audioSource.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.E) && move_flag && jung_hillflag)
@@ -190,6 +201,9 @@ public class PlayerController : MonoBehaviour
             hiller_flag = true;
             jung_hillflag = false;
             jung_hillt = jung_hilltime;
+              audioSource.clip = audioClips[2];
+            audioSource.pitch = pitchMultiplier;
+            audioSource.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.R) && move_flag && jung_swordflag)
@@ -200,6 +214,9 @@ public class PlayerController : MonoBehaviour
             sword_flag = true;
             jung_swordflag = false;
             jung_swordt = 40.0f;
+             audioSource.clip = audioClips[3];
+            audioSource.pitch = pitchMultiplier;
+            audioSource.Play();
         }
         
     }
@@ -210,15 +227,23 @@ public class PlayerController : MonoBehaviour
             HP.GetComponent<HPController>().HealthBar.value -= 0.1f;
             anim.SetTrigger("gethit");
             golemDamageTimer = 0.0f;
+              audioSource.clip = audioClips[4];
+              audioSource.pitch = 1.0f;
+            audioSource.Play();
+            
         } else if (coll.gameObject.tag == "boss"  && golemDamageTimer >= damageInterval ) {
             HP.GetComponent<HPController>().HealthBar.value -= 0.1f;
             anim.SetTrigger("gethit");
             bossDamageTimer = 0.0f;
+              audioSource.clip = audioClips[4];
+              audioSource.pitch = 1.0f;
+            audioSource.Play();
         }
 
 
         if (HP.GetComponent<HPController>().HealthBar.value == 0.0f && !death_flag)
         {
+              
             death_flag = true;
             anim.Rebind();
         }
@@ -233,6 +258,9 @@ public class PlayerController : MonoBehaviour
                 anim.SetTrigger("gethit");
                 coll_flag = false;
                 move_flag = false;
+                audioSource.clip = audioClips[4];
+                audioSource.pitch = 1.0f;
+            audioSource.Play();
             }
 
             HP.GetComponent<HPController>().HealthBar.value -= 0.1f;
@@ -242,6 +270,9 @@ public class PlayerController : MonoBehaviour
                 anim.SetTrigger("gethit");
                 coll_flag = false;
                 move_flag = false;
+                audioSource.clip = audioClips[4];
+                audioSource.pitch = 1.0f;
+            audioSource.Play();
             }
 
             HP.GetComponent<HPController>().HealthBar.value -= 0.15f;

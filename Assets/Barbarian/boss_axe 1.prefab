@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 682143790565560381}
   m_Layer: 0
   m_Name: boss_axe 1
-  m_TagString: Untagged
+  m_TagString: axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

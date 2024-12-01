@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - golem
   - rock
+  - boss
+  - axe
   layers:
   - Default
   - TransparentFX

@@ -4584,6 +4584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3467915286265459867}
+  HP: {fileID: 3751354734366410875, guid: 7ecba7942e59fc540b3d50438809c5d5, type: 3}
   NomalAttackRange: 1.5
   SkillAttackRange: 8
   MaxSkillAttackRange: 10

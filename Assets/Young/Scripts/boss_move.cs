@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class boss_move : MonoBehaviour
 {
     GameObject target;  // 플레이어
-     Animator anim; // 에니메이션
-     public UnityEngine.AI.NavMeshAgent agent;
-     
+    Animator anim; // 에니메이션
+    public UnityEngine.AI.NavMeshAgent agent;
+    public GameObject HP;
 
     public float NomalAttackRange = 1.5f;   // 근거리 공격 범위 설정
     public float  SkillAttackRange = 9.0f;
@@ -19,10 +19,10 @@ public class boss_move : MonoBehaviour
     public Transform[] sword_spawn; // 검 소환 위치
 
     float attackCoolTime = 10.0f; // 공격 쿨타임
-     float lastAttackTime = 0f; // 마지막 공격 시간
-        public int health = 2;
-        float death_time = 0.0f;
-        bool death_flag = false;
+    float lastAttackTime = 0f; // 마지막 공격 시간
+    float death_time = 0.0f;
+    bool death_flag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,13 +110,13 @@ public class boss_move : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
-    {
-        health--;
-        anim.SetTrigger("gethit");
-            if (health <= 0)
+        {
+            HP.GetComponent<HPController>().HealthBar.value -= 0.5f;
+            Canvas.ForceUpdateCanvases();
+            anim.SetTrigger("gethit");
+            if (HP.GetComponent<HPController>().HealthBar.value == 0.0f)
             {
                 Die();
-                
             }
         }
     }

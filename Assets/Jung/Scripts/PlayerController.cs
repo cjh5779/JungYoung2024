@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     float golemDamageTimer = 0.0f;
     float damageInterval = 3.0f;
     float bossDamageTimer = 0.0f;
+    public int enemycount = 0;
     // Start is called before the first frame update
     void Start()
     {

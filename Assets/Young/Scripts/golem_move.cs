@@ -7,7 +7,7 @@ public class golem_move : MonoBehaviour
      GameObject target;  // 플레이어
      Animator anim; // 에니메이션
      public UnityEngine.AI.NavMeshAgent agent;
-     bool move_flag = true;    // 이동 가능 상태 체크 ..? 
+     bool move_flag = true;    // 이동 가능 상태 체크 ..?
 
      public GameObject rock;  // 던질 돌
      public GameObject rockSpawnPoint;  // 돌이 나오는 위치
@@ -111,20 +111,8 @@ public class golem_move : MonoBehaviour
      deathcount++; 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
       IEnumerator ResumeMovementAfterAttack(string attackTrigger)
-    {
+      {
 
         // 애니메이션 길이가 끝날 때까지 대기 (애니메이션의 길이에 맞춰 조절)
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
@@ -132,6 +120,19 @@ public class golem_move : MonoBehaviour
         // 애니메이션 후 이동 재개
         agent.isStopped = false;
 
+      }
+
+    GUIStyle style = new GUIStyle();
+
+    private void Awake()
+    {
+        style.fontSize = 25;
+        style.normal.textColor = Color.red;
+    }
+    void OnGUI()
+    {
+        GUI.Label(new Rect(Screen.width / 2 - 80, 5, 10, 10), "Kill : ", style);
+        GUI.Label(new Rect(Screen.width / 2, 5, 10, 10), deathcount.ToString(), style);
     }
 }
 
